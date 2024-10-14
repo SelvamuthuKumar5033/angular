@@ -1,0 +1,91 @@
+/* General panel styling */
+.panel-body {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form layout */
+.form-horizontal {
+    margin: 0;
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Label styling */
+.control-label {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Input fields styling */
+.form-control {
+    border-radius: 4px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons styling */
+.btn {
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Success button */
+.btn-success {
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    color: #fff;
+}
+
+/* Cancel button */
+.btn-info {
+    background-color: #d9534f;
+    border-color: #d9534f;
+    color: #fff;
+}
+
+/* Button hover effects */
+.btn:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+/* Offset for form buttons */
+.col-sm-offset-2 {
+    margin-left: 16.666667%;
+}
+
+/* Column sizing */
+.col-sm-2 {
+    width: 16.666667%;
+}
+
+.col-sm-8 {
+    width: 66.666667%;
+}
+
+.col-xs-3 {
+    width: 25%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .col-xs-3 {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .col-sm-offset-2 {
+        margin-left: 0;
+    }
+
+    .col-sm-8 {
+        width: 100%;
+    }
+}

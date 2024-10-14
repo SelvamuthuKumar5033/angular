@@ -1,0 +1,41 @@
+<div class="ticket-add-container">
+    <form #myForm="ngForm" class="form-horizontal" (ngSubmit)="addTicket(myForm)">
+        <div class="form-group">
+            <label for="tic_id" class="col-sm-2 control-label">TicketerId </label>
+            <div class="col-xs-3">
+                <input type="text" class="form-control" [(ngModel)]="tic.ticketerid" name="ticid" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="tic_name" class="col-sm-2 control-label">TicketerName</label>
+            <div class="col-xs-3">
+                <input type="text" class="form-control" [(ngModel)]="tic.ticketername" name="ticname" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="description" class="col-sm-2 control-label">TicketDescription</label>
+            <div class="col-xs-3">
+                <textarea id="description" type="text" class="form-control" [(ngModel)]="tic.ticketdesc" name="ticdesc" required></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="tic_date" class="col-sm-2 control-label">TicketDate</label>
+            <div class="col-xs-3">
+                <input type="text" class="form-control" [(ngModel)]="tic.ticketdate" name="ticdate">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="tic_time" class="col-sm-2 control-label">TicketTime</label>
+            <div class="col-xs-3">
+                <input type="text" class="form-control" [(ngModel)]="tic.tickettime" name="tictime">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-8">
+                <button type="submit" class="btn btn-success">Save</button>
+                <button type="reset" class="btn btn-info"  routerLink="/list-tickets" routerLinkActive="active" >Cancel</button>
+            </div>
+        </div> 
+    </form>
+</div>

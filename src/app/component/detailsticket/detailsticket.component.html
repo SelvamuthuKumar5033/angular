@@ -1,0 +1,33 @@
+<div class="ticket-detail-container">
+    <h2>Ticket Details</h2>
+    <div class="ticket-detail">
+        <label>Ticketer ID:</label>
+        <span>{{ tic.ticketerid }}</span>
+    </div>
+
+    <div class="ticket-detail">
+        <label>Ticketer Name:</label>
+        <span>{{ tic.ticketername }}</span>
+    </div>
+
+    <div class="ticket-detail">
+        <label>Ticket Description:</label>
+        <span>{{ tic.ticketdesc }}</span>
+    </div>
+
+    <div class="ticket-detail">
+        <label>Ticket Date:</label>
+        <span>{{ tic.ticketdate }}</span>
+    </div>
+
+    <div class="ticket-detail">
+        <label>Ticket Time:</label>
+        <span>{{ tic.tickettime }}</span>
+    </div>
+
+    <div class="button-container">
+        <button class="back-button" (click)="goBack()">Back to List</button>
+        <button class="edit-button" (click)="navigateToEdit(tic.sid)" >Edit</button>
+    </div>
+
+</div>

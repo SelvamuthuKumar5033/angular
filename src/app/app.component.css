@@ -1,0 +1,14 @@
+.container {
+    margin: 20px;
+  }
+  
+  nav a {
+    margin-right: 15px;
+    text-decoration: none;
+  }
+  
+  nav a.active {
+    font-weight: bold;
+    color: blue; /* Or any color you prefer */
+  }
+  

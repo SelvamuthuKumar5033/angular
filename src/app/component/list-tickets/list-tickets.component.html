@@ -1,0 +1,31 @@
+<div>
+    <h3>Ticket Details</h3>
+    <div class="container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>Sno</td>
+                    <td>TicketerId</td>
+                    <td>TicketerName</td>
+                    <td>TicketDescription</td>
+                    <td>TicketDate</td>
+                    <td>TicketTime</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tic of tickets">
+                    <td>{{tic.sid}}</td>
+                    <td>{{tic.ticketerid}}</td>
+                    <td>{{tic.ticketername}}</td>
+                    <td>{{tic.ticketdesc}}</td>
+                    <td>{{tic.ticketdate}}</td>
+                    <td>{{tic.tickettime}}</td>
+                    <td width="275">
+                        <a class="btn btn-success" (click)="navigateToDetail(tic.sid)">View Details</a>
+                        <a class="btn btn-danger" (click)="deleteticket(tic.sid)">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
