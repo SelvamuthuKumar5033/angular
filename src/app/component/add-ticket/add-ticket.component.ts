@@ -49,6 +49,12 @@ export class AddTicketComponent {
       if(this.tic.sid){
           this.ticketserviceservice.updateTicket(this.tic.sid, this.tic).subscribe({
               next: ()=>{
+                this.tic = { sid:this.tic.sid,
+                  ticketerid: this.tic.ticketerid, 
+                  ticketername:this.tic.ticketername,
+                  ticketdesc: this.tic.ticketdesc,
+                  ticketdate: this.tic.ticketdate,
+                  tickettime: this.tic.tickettime };
                 this.getall();
                 this.router.navigate(['/list-tickets'])
               }
