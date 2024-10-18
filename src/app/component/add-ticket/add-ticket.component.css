@@ -38,19 +38,25 @@ label {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    margin: 5px;
 }
 
-.submit-button {
+.btn-info, .btn-success{
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #28a745;
+    background-color: #5bc0de;
     color: white;
     cursor: pointer;
+    margin: 5px;
 }
 
-.submit-button:hover {
+.btn-success:hover {
     background-color: #218838;
+}
+
+.btn-info:hover{
+    background-color: red;
 }
 
 /* Responsive adjustments */

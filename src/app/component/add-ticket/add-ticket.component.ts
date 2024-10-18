@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AddTicketComponent {
 
+  
   tickets: Ticket[] = [];
   tic: Ticket = { // Changed to use Ticket model
     sid: 0,
@@ -21,7 +22,12 @@ export class AddTicketComponent {
     tickettime: ''
   };
 
-  constructor(private ticketserviceservice: TicketserviceService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private ticketserviceservice: TicketserviceService, private route: ActivatedRoute, private router: Router) {
+
+    const today = new Date();
+    this.tic.ticketdate = today.toISOString().split('T')[0];
+    this.tic.tickettime = '9:00 AM';
+  }
 
 
   ngOnInit(): void {

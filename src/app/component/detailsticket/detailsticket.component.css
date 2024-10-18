@@ -1,62 +1,68 @@
 .ticket-detail-container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ticket-detail {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.ticket-detail:last-child {
+  border-bottom: none; /* Remove border from last item */
+}
+
+label {
+  font-weight: bold;
+}
+
+.button-container {
+  display: flex; /* Use flexbox to align buttons */
+  justify-content: center; /* Center the buttons */
+  margin-top: 20px; /* Space above buttons */
+}
+
+.back-button, .edit-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px; /* Space between buttons */
+}
+
+.back-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.back-button:hover {
+  background-color: #0056b3; /* Darken on hover */
+}
+
+.edit-button {
+  background-color: #28a745; /* Green background */
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #218838; /* Darken on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .ticket-detail-container {
+      width: 90%;
   }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .ticket-detail {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #e0e0e0;
-  }
-  
-  .ticket-detail:last-child {
-    border-bottom: none; /* Remove border from last item */
-  }
-  
-  label {
-    font-weight: bold;
-  }
-  
-  .button-container {
-    display: flex; /* Use flexbox to align buttons */
-    justify-content: center; /* Center the buttons */
-    margin-top: 20px; /* Space above buttons */
-  }
-  
-  .back-button, .edit-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 10px; /* Space between buttons */
-  }
-  
-  .back-button {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .back-button:hover {
-    background-color: #0056b3; /* Darken on hover */
-  }
-  
-  .edit-button {
-    background-color: #28a745; /* Green background */
-    color: white;
-  }
-  
-  .edit-button:hover {
-    background-color: #218838; /* Darken on hover */
-  }
-  
+}

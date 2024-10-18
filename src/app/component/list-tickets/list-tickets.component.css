@@ -34,6 +34,7 @@
     padding: 10px 15px;
     font-size: 16px;
     text-align: center;
+    margin: 5px;
 }
 
 /* Success button */
@@ -41,6 +42,7 @@
     background-color: #5bc0de;
     border-color: #46b8da;
     color: #fff;
+    margin: 5px;
 }
 
 /* Cancel button */
