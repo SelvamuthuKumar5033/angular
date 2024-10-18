@@ -13,8 +13,8 @@ export class AddTicketComponent {
 
   tickets: Ticket[] = [];
   tic: Ticket = { // Changed to use Ticket model
-    sid:0,
-    ticketerid:0,
+    sid: 0,
+    ticketerid: 0,
     ticketername: '',
     ticketdesc: '',
     ticketdate: '',
@@ -26,8 +26,10 @@ export class AddTicketComponent {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.tic.sid = +params['id']; // Retrieve the ID from the route
-      this.fetchTicketDetails(this.tic.sid);
+      if (params['id']) {
+        this.tic.sid = +params['id'];
+        this.fetchTicketDetails(this.tic.sid);
+      }
     });
   }
 
@@ -46,33 +48,37 @@ export class AddTicketComponent {
     // alert("addticket called");
     if (form.valid) {
       // alert("form is valid");
-      if(this.tic.sid){
-          this.ticketserviceservice.updateTicket(this.tic.sid, this.tic).subscribe({
-              next: ()=>{
-                this.tic = { sid:this.tic.sid,
-                  ticketerid: this.tic.ticketerid, 
-                  ticketername:this.tic.ticketername,
-                  ticketdesc: this.tic.ticketdesc,
-                  ticketdate: this.tic.ticketdate,
-                  tickettime: this.tic.tickettime };
-                this.getall();
-                this.router.navigate(['/list-tickets'])
-              }
-          })
+      if (this.tic.sid) {
+        this.ticketserviceservice.updateTicket(this.tic.sid, this.tic).subscribe({
+          next: () => {
+            this.tic = {
+              sid: this.tic.sid,
+              ticketerid: this.tic.ticketerid,
+              ticketername: this.tic.ticketername,
+              ticketdesc: this.tic.ticketdesc,
+              ticketdate: this.tic.ticketdate,
+              tickettime: this.tic.tickettime
+            };
+            this.getall();
+            this.router.navigate(['/list-tickets'])
+          }
+        })
       }
       else {
         this.ticketserviceservice.createTicket(this.tic).subscribe({
-        next: () => {
-          this.tic = { ticketerid: 0 , ticketername: '', ticketdesc: '', ticketdate: '', tickettime: '' };
-          form.reset();
-          this.getall(); // Refresh the ticket list
-        },
-        error: (e) => console.error(e)
-      });}
+          next: () => {
+            this.tic = { sid: 0, ticketerid: 0, ticketername: '', ticketdesc: '', ticketdate: '', tickettime: '' };
+            form.reset();
+            this.getall(); // Refresh the ticket list
+            this.router.navigate(['/list-tickets'])
+          },
+          error: (e) => console.error(e)
+        });
+      }
     }
   }
 
-  
+
 
   getall(): void {
     this.ticketserviceservice.getAllTickets().subscribe({
