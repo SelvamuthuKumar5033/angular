@@ -1,11 +1,11 @@
 export class Ticket {
 
     sid? : any;
-    ticketerid? : number;
-    ticketername? : String;
-    ticketdate? : String;
-    ticketdesc? : String;
-    tickettime? : String;
-
+    ticketerid? : string;
+    ticketername? : string;
+    ticketdate? : string;
+    ticketdesc? : string;
+    tickettime? : string;
+    status?:string
 }
 

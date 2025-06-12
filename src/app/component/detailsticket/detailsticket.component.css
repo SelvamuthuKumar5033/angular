@@ -66,3 +66,9 @@ label {
       width: 90%;
   }
 }
+
+.btn-danger {
+  background-color: #d9534f;
+  border-color: #d9534f;
+  color: #fff;
+}

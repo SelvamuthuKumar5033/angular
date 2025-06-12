@@ -1,33 +1,48 @@
 <div class="ticket-detail-container">
     <h2>Ticket Details</h2>
-    <div class="ticket-detail">
-        <label>Ticketer ID:</label>
-        <span>{{ tic.ticketerid }}</span>
-    </div>
+    <form #myForm="ngForm">
+        <div class="ticket-detail">
+            <label>Ticketer ID:</label>
+            <span>{{ tic.ticketerid }}</span>
+        </div>
 
-    <div class="ticket-detail">
-        <label>Ticketer Name:</label>
-        <span>{{ tic.ticketername }}</span>
-    </div>
+        <div class="ticket-detail">
+            <label>Ticketer Name:</label>
+            <span>{{ tic.ticketername }}</span>
+        </div>
 
-    <div class="ticket-detail">
-        <label>Ticket Description:</label>
-        <span>{{ tic.ticketdesc }}</span>
-    </div>
+        <div class="ticket-detail">
+            <label>Ticket Description:</label>
+            <span>{{ tic.ticketdesc }}</span>
+        </div>
 
-    <div class="ticket-detail">
-        <label>Ticket Date:</label>
-        <span>{{ tic.ticketdate }}</span>
-    </div>
+        <div class="ticket-detail">
+            <label>Ticket Date:</label>
+            <span>{{ tic.ticketdate }}</span>
+        </div>
 
-    <div class="ticket-detail">
-        <label>Ticket Time:</label>
-        <span>{{ tic.tickettime }}</span>
-    </div>
+        <div class="ticket-detail">
+            <label>Ticket Time:</label>
+            <span>{{ tic.tickettime }}</span>
+        </div>
 
-    <div class="button-container">
-        <button class="back-button" (click)="goBack()">Back to List</button>
-        <button class="edit-button" (click)="navigateToEdit(tic.sid)" >Edit</button>
-    </div>
+        <div class="ticket-detail">
+            <label>Ticket Status:</label>
+            <span>{{ tic.status }}</span>
+        </div>
 
+        <div class="button-container" *ngIf="username === 'admin'? false : true " >
+            <button class="back-button" (click)="goBack()">Back to List</button>
+            <button class="edit-button" (click)="navigateToEdit(tic.sid)" *ngIf="tic.status === 'Pending'? true:false">Edit</button>
+        </div>
+
+        <div class="button-container" *ngIf="username === 'admin'? true : false">
+            <button class="back-button" (click)="goBack()">Back to List</button>
+            <button class="edit-button" *ngIf="tic.status === 'Completed'? false : true" (click)="confirm(tic)">Completed</button>
+        </div>
+
+        <app-pop-up [flag]="showConfirm" [message]="'Are you sure to mark as Completed?'" (res)="onconfirmupdate($event)">
+
+        </app-pop-up>
+    </form>
 </div>

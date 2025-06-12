@@ -1,0 +1,117 @@
+<app-notification [nflag]="alert$" [message]=message (res)="handleNotification($event)"></app-notification>
+<div class="nav">
+  <h1>Welcome to Ticket Support</h1>
+  <nav class="navbar navbar-expand bg-body-tertiary">
+    <div class="container-fluid">
+      <a href="home" matTooltip="Home" matTooltipPosition="above">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+          <path fill-rule="evenodd"
+            d="M9.293 2.293a1 1 0 0 1 1.414 0l7 7A1 1 0 0 1 17 11h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6H3a1 1 0 0 1-.707-1.707l7-7Z"
+            clip-rule="evenodd" />
+        </svg>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <button class="nav-link" (click)="navigatetoAddticket()">Add Tickets</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" (click)="navigatetoListticket()">Ticket Details</button>
+          </li>
+        </ul>
+
+        <form class="d-flex" role="search">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li>
+              <a class="nav-link">{{username}}</a>
+            </li>
+            <li>
+              <button class="nav-link" (click)="confirm()" matTooltip="logout" matTooltipPosition="above">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                  <path fill-rule="evenodd"
+                    d="M3 4.25A2.25 2.25 0 0 1 5.25 2h5.5A2.25 2.25 0 0 1 13 4.25v2a.75.75 0 0 1-1.5 0v-2a.75.75 0 0 0-.75-.75h-5.5a.75.75 0 0 0-.75.75v11.5c0 .414.336.75.75.75h5.5a.75.75 0 0 0 .75-.75v-2a.75.75 0 0 1 1.5 0v2A2.25 2.25 0 0 1 10.75 18h-5.5A2.25 2.25 0 0 1 3 15.75V4.25Z"
+                    clip-rule="evenodd" />
+                  <path fill-rule="evenodd"
+                    d="M6 10a.75.75 0 0 1 .75-.75h9.546l-1.048-.943a.75.75 0 1 1 1.004-1.114l2.5 2.25a.75.75 0 0 1 0 1.114l-2.5 2.25a.75.75 0 1 1-1.004-1.114l1.048-.943H6.75A.75.75 0 0 1 6 10Z"
+                    clip-rule="evenodd" />
+                </svg>
+              </button>
+            </li>
+            <li>
+              <input class="form-control me-2" [(ngModel)]="selectedDate" type="date" [max]="selectedDate| date:'yyyy-MM-dd'" name="selectedDate"
+                aria-label="Date Filter" style="background-color: rgb(221, 214, 214);">
+            </li>
+            <li>
+              <button class="btn btn-outline-success" type="submit" (click)="onChange()" matTooltip="Search" matTooltipPosition="above">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                  <path fill-rule="evenodd"
+                    d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z"
+                    clip-rule="evenodd" />
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="flex flex-wrap">
+
+    <div  class="w-full p-4 md:w-1/2 lg:w-1/4">
+      <div class="relative block h-48 overflow-hidden rounded bg-gray-100 flex items-center justify-center">
+        <span class="text-3xl font-bold text-blue-600">
+          {{ dashboard[0].total }}
+        </span>
+      </div>
+      <div class="mt-4">
+        <h3 class="title-font mb-1 text-xs tracking-widest text-gray-500">TICKETS by</h3>
+        <h2 *ngIf="username!='admin'" class="title-font text-lg font-medium text-gray-900">{{username}} </h2>
+        <h2 *ngIf="username=='admin'" class="title-font text-lg font-medium text-gray-900">Users</h2>
+      </div>
+    </div>
+
+    <div *ngIf="username==='admin'" class="w-full p-4 md:w-1/2 lg:w-1/4">
+      <div class="relative block h-48 overflow-hidden rounded bg-gray-100 flex items-center justify-center">
+        <span class="text-3xl font-bold text-blue-600">
+          {{ dashboard[0].todayTot }}
+        </span>
+      </div>
+      <div class="mt-4">
+        <h3 class="title-font mb-1 text-xs tracking-widest text-gray-500">TICKETS</h3>
+        <h2 class="title-font text-lg font-medium text-gray-900">{{selectedDate}} Received </h2>
+      </div>
+    </div>
+
+    <div class="w-full p-4 md:w-1/2 lg:w-1/4">
+      <div class="relative block h-48 overflow-hidden rounded bg-gray-100 flex items-center justify-center">
+        <span class="text-3xl font-bold text-blue-600">
+          {{dashboard[0].pending}}
+        </span>
+      </div>
+      <div class="mt-4">
+        <h3 class="title-font mb-1 text-xs tracking-widest text-gray-500">TICKETS </h3>
+        <h2 class="title-font text-lg font-medium text-gray-900">Pending</h2>
+      </div>
+    </div>
+
+    <div class="w-full p-4 md:w-1/2 lg:w-1/4">
+      <div class="relative block h-48 overflow-hidden rounded bg-gray-100 flex items-center justify-center">
+        <span class="text-3xl font-bold text-blue-600">
+          {{dashboard[0].inprogress}}
+        </span>
+      </div>
+      <div class="mt-4">
+        <h3 class="title-font mb-1 text-xs tracking-widest text-gray-500">TICKETS </h3>
+        <h2 class="title-font text-lg font-medium text-gray-900">Inprogress</h2>
+      </div>
+    </div>
+
+  </div>
+
+  <app-pop-up [flag]="showConfirm" [message]="'Are you sure to Logout?'" (res)="onconfirmlogout($event)"></app-pop-up>
+</div>

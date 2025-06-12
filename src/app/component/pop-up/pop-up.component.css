@@ -1,0 +1,45 @@
+
+.popup-backdrop {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.popup {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+  
+/* Buttons styling */
+.btn {
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 16px;
+    text-align: center;
+    margin: 5px;
+}
+
+/* Success button */
+.btn-success {
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    color: #fff;
+    margin: 5px;
+}
+
+/* Cancel button */
+.btn-danger {
+    background-color: #d9534f;
+    border-color: #d9534f;
+    color: #fff;
+}
+
+/* Button hover effects */
+.btn:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
