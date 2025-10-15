@@ -60,7 +60,7 @@ export class AddTicketComponent {
       }
     );
   }
-
+  
   addTicket(form: NgForm): void {
     const obj = this;
     // alert("addticket called");

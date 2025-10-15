@@ -120,7 +120,7 @@ export class HomeComponent {
           obj.dashboard = data;
           console.log(obj.dashboard[0]);
         },
-        error: (err) => {
+        error: () => {
           obj.message = 'Something went Wrong';
           obj.alert$ = true;
         },
